@@ -14,4 +14,4 @@ typedef struct {
 } Matrix;
 
 Matrix* createMatrix (int, int);
-
+void initMatrix (Matrix*, double*);
