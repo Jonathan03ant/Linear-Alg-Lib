@@ -41,11 +41,11 @@ Matrix* createMatrix (int row, int col){
         *inititializing the Array of pointers to the rows    
         matrix->data:
         +-----------+       +---------------------+
-        | data[0]   | ----> | matrixBlock[0][0]   |
+        | data[0]   | ----> | matrixBlock[0][0]   | 0 + number of columns as an entry to the matrix block
         +-----------+       +---------------------+
-        | data[1]   | ----> | matrixBlock[1][0]   |
+        | data[1]   | ----> | matrixBlock[1][0]   | 1 + number of columns as an entry to the matrix block
         +-----------+       +---------------------+
-        | data[2]   | ----> | matrixBlock[2][0]   |
+        | data[2]   | ----> | matrixBlock[2][0]   | 2 + number of columns as an entry to the matrix block
         +-----------+       +---------------------+
     */
 
@@ -66,7 +66,33 @@ Matrix* createMatrix (int row, int col){
     return m;
 }
 
+/*
+    func1.2 finitMatrix
+    * implementing a function to copy the values from 'double* values' to the Matrix
+    Matrix M has already been created and is available for initialization
+*/
+
+void initMatrix (Matrix* m, double* values) {
 
 
+    int r = m->numRow;
+    int c = m->numCol;
 
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            m->data[i][j] = values[(i * c) + j];
+    }
+}
 
+}
+
+void printMatrix (Matrix* m){
+    int r = m->numRow;
+    int c = m->numCol;
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++){
+            printf("%.1lf ", m->data[i][j]);
+        }
+        printf("\n");
+    }
+}
