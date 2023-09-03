@@ -96,3 +96,54 @@ void printMatrix (Matrix* m){
         printf("\n");
     }
 }
+
+/*
+    func___ Adding Function
+    * uses stdarg.h library for argument Matrices
+*/
+Matrix* addMatrices (int numMatrices, ...) {
+    
+    va_list matrices;
+    va_start(matrices, numMatrices);
+
+    Matrix* firstMatrix = va_arg(matrices, Matrix*);
+    int r = firstMatrix->numRow;
+    int c = firstMatrix->numCol;
+
+    Matrix* result = createMatrix(r, c);
+    if (result == NULL) {
+        perror("Error: Memory allocation failed for result matrix.\n");
+        va_end(matrices);
+        return NULL;
+    }
+
+    /*
+        *Now we can loop through va_args and add the matrices to the result matrix
+    */
+
+    for (int i = 0; i < numMatrices; i++) {
+        //Extracting the first matrix
+        Matrix* matrix = va_arg(matrices, Matrix*);
+
+        /*
+            *Error Handling for Incompatible Matrices (different Dimension)
+        */
+        if ((result->numRow != matrix->numRow) || (result->numCol != matrix->numCol)){
+            perror("Error: Matrices have incompatible dimensions for addition.\n");
+            va_end(matrices);
+            return NULL;
+        }
+
+        /*
+            *Matrix Addition Implementation
+        */
+        for (int i   = 0; i < result->numRow; i++){
+            for (int j = 0; j < result->numCol; j++){
+                result->data[i][j] += matrix->data[i][j];
+            }
+       }
+    }
+    va_end(matrices);
+    return result;
+
+}

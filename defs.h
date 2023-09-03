@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 /*
     Struct def: 
@@ -16,3 +17,4 @@ typedef struct {
 Matrix* createMatrix (int, int);
 void initMatrix (Matrix*, double*);
 void printMatrix (Matrix*);
+Matrix* addMatrices(int numMatrices, ...);
