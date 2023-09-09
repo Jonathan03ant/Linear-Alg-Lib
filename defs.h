@@ -17,4 +17,6 @@ typedef struct {
 Matrix* createMatrix (int, int);
 void initMatrix (Matrix*, double*);
 void printMatrix (Matrix*);
-Matrix* addMatrices(int numMatrices, ...);
+Matrix* addMatrices(int, Matrix**);
+Matrix* subtractMatrix(int, Matrix**);
+void freeMatrix(Matrix*);

@@ -101,49 +101,116 @@ void printMatrix (Matrix* m){
     func___ Adding Function
     * uses stdarg.h library for argument Matrices
 */
-Matrix* addMatrices (int numMatrices, ...) {
-    
-    va_list matrices;
-    va_start(matrices, numMatrices);
 
-    Matrix* firstMatrix = va_arg(matrices, Matrix*);
-    int r = firstMatrix->numRow;
-    int c = firstMatrix->numCol;
+
+Matrix* addMatrices(int numMatrices, Matrix** matrices) {
+    /*
+        * Error checking //Compatibility
+    */
+
+    if (numMatrices < 1 || matrices == NULL){
+        perror("At least two matrices must be specified");
+        return NULL;
+    }
+
+    int r = matrices[0]->numRow;
+    int c = matrices[0]->numCol;
+
+    /*
+        * Checking Matrix Dimension
+    */
+
+    for (int i = 1; i < numMatrices; i++){
+        if(matrices[i]->numRow != r || matrices[i]->numCol != c){
+            perror("Matrices have incompatible dimensions for addition");
+            return NULL;
+        }
+    }
+
+    /*
+        * Creating Result Matrix
+    */
 
     Matrix* result = createMatrix(r, c);
     if (result == NULL) {
-        perror("Error: Memory allocation failed for result matrix.\n");
-        va_end(matrices);
+        perror("Error: Memory allocation failed for the result matrix.\n");
         return NULL;
     }
 
     /*
-        *Now we can loop through va_args and add the matrices to the result matrix
+        * Now we can loop through numMatrices and add the matrices to the result matrix
     */
 
     for (int i = 0; i < numMatrices; i++) {
-        //Extracting the first matrix
-        Matrix* matrix = va_arg(matrices, Matrix*);
+        for (int j = 0; j < r; j++) {
+            for (int k = 0; k < c; k++) {
+                result->data[j][k] += matrices[i]->data[j][k];
+            }
+        }
+    }
 
-        /*
-            *Error Handling for Incompatible Matrices (different Dimension)
-        */
-        if ((result->numRow != matrix->numRow) || (result->numCol != matrix->numCol)){
-            perror("Error: Matrices have incompatible dimensions for addition.\n");
-            va_end(matrices);
+    return result;
+}
+
+Matrix* subtractMatrix (int numMatrices, Matrix** matrices){
+    /*
+        * Error checking //Compatibility
+    */
+
+    if (numMatrices < 2 || matrices == NULL){
+        perror("At least two matrices must be specified");
+        return NULL;
+    }
+
+    /*
+        * Checking Matrix Dimension
+    */
+
+    int r = matrices[0]->numRow;
+    int c = matrices[0]->numCol;
+
+    for (int i = 1; i <numMatrices; i++){
+        if(matrices[i]->numRow!= r || matrices[i]->numCol != c){
+            perror("Matrices have incompatible dimensions for addition");
             return NULL;
         }
-
-        /*
-            *Matrix Addition Implementation
-        */
-        for (int i   = 0; i < result->numRow; i++){
-            for (int j = 0; j < result->numCol; j++){
-                result->data[i][j] += matrix->data[i][j];
-            }
-       }
     }
-    va_end(matrices);
+
+    Matrix* result = createMatrix(r, c);
+
+    /*
+        * Now we can loop through numMatrices and add the matrices to the result matrix
+    */
+   
+    for (int i = 0; i < numMatrices; i++){
+        for (int j = 0; j < r; j++){
+            for (int k = 0; k < c; k++){
+                /*
+                    * frist option is if we only have one matrix, then we copy the value of the first
+                    * if we have more than one matrix, we will decrement the result
+                */
+                if (i == 0){
+                    result->data[j][k] = matrices[i]->data[j][k];
+                }else{
+                    result->data[j][k] -= matrices[i]->data[j][k];
+                }
+
+            }
+        }
+    }
+
     return result;
 
+}
+
+void freeMatrix(Matrix* m) {
+    if (m != NULL) {
+        // Free the matrix data
+        if (m->data != NULL) {
+            free(m->data[0]); // Free the contiguous data block
+            free(m->data);    // Free the array of pointers to rows
+        }
+        // Free the Matrix structure
+        free(m);
+    }
 }
