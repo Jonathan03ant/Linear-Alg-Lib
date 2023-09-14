@@ -23,13 +23,13 @@ int main() {
     // Create an array of matrices and add them
     Matrix* matrices[] = {A, B};
     Matrix* result = addMatrices(2, matrices);
-    printf("\n\n");
     printf("Result Matrix:\n");
     printMatrix(result);
     Matrix* result2 = subtractMatrix(2, matrices);
-    printf("\n\n");
     printf("Result Matrix:\n");
     printMatrix(result2);
+    Matrix* result3 = scalarMultiply(A, 2.0);
+    printMatrix(result3);
 
     // Free memory for matrices
     freeMatrix(result);

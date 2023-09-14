@@ -19,4 +19,5 @@ void initMatrix (Matrix*, double*);
 void printMatrix (Matrix*);
 Matrix* addMatrices(int, Matrix**);
 Matrix* subtractMatrix(int, Matrix**);
+Matrix* scalarMultiply (Matrix*, double);
 void freeMatrix(Matrix*);

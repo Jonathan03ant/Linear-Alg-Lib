@@ -148,7 +148,7 @@ Matrix* addMatrices(int numMatrices, Matrix** matrices) {
             }
         }
     }
-
+    printf("\nAddition\n");
     return result;
 }
 
@@ -198,9 +198,37 @@ Matrix* subtractMatrix (int numMatrices, Matrix** matrices){
             }
         }
     }
-
+    printf("\nSubtraction\n");
     return result;
 
+}
+Matrix* scalarMultiply (Matrix* matrix, double scalar) {
+    /*
+        *Error checking
+
+    */
+    if (matrix == NULL || scalar == 0){
+        perror("Input Matrix NULL or Scalar = 0");
+        return NULL;
+    }
+
+    Matrix* result = createMatrix(matrix->numRow, matrix->numCol);
+        if (result == NULL){
+            perror("Memory Allocation Failed for 'Result' Matrix");
+            return NULL;
+        }
+
+    /*
+        * Looping over the matrix to multiply it by the Scalar value;
+    */
+
+    for (int i = 0; i < matrix->numRow; i++){
+        for (int j = 0; j < matrix->numCol; j++){
+            result->data[i][j] = matrix->data[i][j] * scalar;
+        }
+    }
+    printf("\nScalar Multiplicatioin\n");
+    return result;
 }
 
 void freeMatrix(Matrix* m) {
