@@ -30,6 +30,11 @@ int main() {
     printMatrix(result2);
     Matrix* result3 = scalarMultiply(A, 2.0);
     printMatrix(result3);
+    Matrix* result4 = transposeMatrix(A);
+    
+
+    printMatrix(result4);
+
 
     // Free memory for matrices
     freeMatrix(result);

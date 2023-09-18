@@ -2,6 +2,7 @@
 
 /*
     Fun1.1 fcreateMatrix
+    * creates a matrix with row and int
 */
 Matrix* createMatrix (int row, int col){
 
@@ -228,6 +229,31 @@ Matrix* scalarMultiply (Matrix* matrix, double scalar) {
         }
     }
     printf("\nScalar Multiplicatioin\n");
+    return result;
+}
+
+Matrix* transposeMatrix (Matrix* matrix) {
+    if (matrix == NULL){
+        perror("Input Matrix is Null");
+    }
+
+    Matrix* result = createMatrix(matrix->numCol, matrix->numRow);
+    if (result == NULL){
+            perror("Memory Allocation Failed for 'Result' Matrix");
+            return NULL;
+        }
+    
+    /*
+        *now we can loop through the matrix rows and invert the low and col
+    */
+
+    for (int i = 0; i < matrix->numRow; i++){
+        for (int j = 0; j < matrix->numCol; j++){
+            result->data[j][i] = matrix->data[i][j];
+        }
+    }
+
+    printf("\nMatrix Transpose\n");
     return result;
 }
 
