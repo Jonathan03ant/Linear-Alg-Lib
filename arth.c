@@ -1,4 +1,5 @@
 #include "defs.h"
+#include "vectors.h"
 
 /*
     Fun1.1 fcreateMatrix
@@ -75,7 +76,9 @@ Matrix* createMatrix (int row, int col){
 
 void initMatrix (Matrix* m, double* values) {
 
-
+/*
+    * maybe need to check for error in a case where inappropriate matrix or values
+*/
     int r = m->numRow;
     int c = m->numCol;
 
