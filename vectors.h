@@ -6,7 +6,7 @@
 typedef struct {
     double* vector;
     int size;
-}
+}Vector;
 
-vector* createVector(int);
-vector* initVector(vector*, double*);
+Vector* createVector(int);
+Vector* initVector(vector*, double*);
