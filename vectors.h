@@ -9,4 +9,5 @@ typedef struct {
 }Vector;
 
 Vector* createVector(int);
-Vector* initVector(vector*, double*);
+Vector* initVector(Vector*, double*, int);
+void printVector(Vector*);
