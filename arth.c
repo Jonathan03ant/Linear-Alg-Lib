@@ -103,7 +103,7 @@ void printMatrix (Matrix* m){
 
 /*
     func___ Adding Function
-    * uses stdarg.h library for argument Matrices
+    * Takes in double pointer of matricies and adds them together
 */
 
 

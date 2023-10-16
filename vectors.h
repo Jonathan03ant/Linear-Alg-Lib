@@ -11,3 +11,10 @@ typedef struct {
 Vector* createVector(int);
 Vector* initVector(Vector*, double*, int);
 void printVector(Vector*);
+Vector* addVectors(int, Vector**);
+Vector* subtractVectors(int, Vector**);
+Vector* scalarMultiplyVector(int, Vector*);
+
+Vector* findUnitVector(Vector*);
+Vector* dotProduct(Vector*, Vector*);
+Vector* crossProduct(Vector*, Vector*);
