@@ -13,8 +13,9 @@ Vector* initVector(Vector*, double*, int);
 void printVector(Vector*);
 Vector* addVectors(int, Vector**);
 Vector* subtractVectors(int, Vector**);
-Vector* scalarMultiplyVector(int, Vector*);
+Vector* scalarMultiplyVector(Vector*, double);
 
 Vector* findUnitVector(Vector*);
+Vector* findNormalVector(Vector*);
 Vector* dotProduct(Vector*, Vector*);
 Vector* crossProduct(Vector*, Vector*);

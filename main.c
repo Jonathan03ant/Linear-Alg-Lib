@@ -20,6 +20,7 @@ int main() {
 
     Vector* Vs[] = {x, y};
     Vector* result = addVectors(2, Vs);
+    result = scalarMultiplyVector(result, 2);
     Vector* result2 = subtractVectors(2, Vs);
     
     printf("Vector x + y: ");

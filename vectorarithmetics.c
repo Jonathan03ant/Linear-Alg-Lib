@@ -81,6 +81,7 @@ Vector* addVectors(int numOfVectors, Vector** vectors){
 
     if (result == NULL){
         perror("Failed to allocate memory for the result vector");
+        return NULL;
     }
 
     /*
@@ -113,6 +114,7 @@ Vector* subtractVectors(int numOfVectors, Vector** vectors){
 
     if (result == NULL){
         perror("Failed to allocate memory for the result vector");
+        return NULL;
     }
 
     /*
@@ -130,8 +132,45 @@ Vector* subtractVectors(int numOfVectors, Vector** vectors){
             }
         }
     }
-    
+
     return result;
 }
 
+/*
+        func 2.6
+    * Multiplies a vector by a scalar value
+*/
 
+Vector* scalarMultiplyVector(Vector* vector, double scalar){
+    if (vector == NULL || scalar == 0){
+        perror("Input Vector NUll or Multiplier is Zero");
+        return NULL;
+    }
+
+    int size = vector->size;
+    Vector* result = createVector(size);
+
+    if (result == NULL){
+        perror("Failed to allocate memory for result vector");
+    }
+
+    for (int i = 0; i < size; i++){
+        result->vector[i] = vector->vector[i] * scalar;
+    }
+
+    return result;
+}
+
+/*
+        func 2.7
+    * returns the unit vector of V
+*/
+
+Vector* findUnitVector(Vector* vector){
+    if (vector == NULL){
+        perror("Vector is NULL");
+    }
+
+    int size = vector->size;
+    int 
+}
