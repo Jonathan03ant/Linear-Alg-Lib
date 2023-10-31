@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <math.h>
 
 
 typedef struct {
@@ -16,6 +17,9 @@ Vector* subtractVectors(int, Vector**);
 Vector* scalarMultiplyVector(Vector*, double);
 
 Vector* findUnitVector(Vector*);
-Vector* findNormalVector(Vector*);
-Vector* dotProduct(Vector*, Vector*);
+double dotProduct(Vector*, Vector*);
 Vector* crossProduct(Vector*, Vector*);
+
+
+
+void freeVectors(Vector*);

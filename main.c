@@ -20,13 +20,24 @@ int main() {
 
     Vector* Vs[] = {x, y};
     Vector* result = addVectors(2, Vs);
-    result = scalarMultiplyVector(result, 2);
     Vector* result2 = subtractVectors(2, Vs);
     
     printf("Vector x + y: ");
     printVector(result);
     printf("Vector x - y: ");
     printVector(result2);
+
+    result = findUnitVector(result);
+    result2 = findUnitVector(result2);
+    printf("Unit Vector: result 1");
+    printVector(result);
+
+    printf("Unit Vector: result 2");
+    printVector(result2);
+    printf("Finding the dot product \n");
+
+    double dotProductResult = dotProduct(x, y);
+    printf("%.2lf\n", dotProductResult);
 
     free(x);
     free(y);

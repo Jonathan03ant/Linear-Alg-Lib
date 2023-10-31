@@ -2,6 +2,7 @@
 
 
 
+
 /*
         func2.1
         * creates a vector object with default values.
@@ -172,5 +173,35 @@ Vector* findUnitVector(Vector* vector){
     }
 
     int size = vector->size;
-    int 
+    Vector* result = createVector(size);
+
+    double magnitude = 0.0;
+
+    for (int i = 0; i < size; i++){
+        magnitude += vector->vector[i] * vector->vector[i];
+    }
+
+    magnitude = sqrt(magnitude);
+
+    for (int i = 0; i < size; i++){
+        result->vector[i] = vector->vector[i] / magnitude;
+    }
+    return result;
+
+}
+
+double dotProduct(Vector* v, Vector* w){
+    
+    double result = 0.0;
+    int size = w->size;
+
+    for (int i = 0; i < size; i++){
+        result += v->vector[i] * w->vector[i];
+    }
+    return result;
+}
+
+void freeVector(Vector* vector){
+    free(vector->vector);
+    free(vector);
 }
