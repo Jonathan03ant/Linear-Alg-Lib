@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "LinearDefs.h"
+#include "EntityMatrix.h"
 
 
 

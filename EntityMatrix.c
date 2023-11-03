@@ -1,4 +1,4 @@
-#include "LinearDefs.h"
+#include "EntityMatrix.h"
 /*
     Fun1.1 fcreateMatrix
     * creates a matrix with row and int
