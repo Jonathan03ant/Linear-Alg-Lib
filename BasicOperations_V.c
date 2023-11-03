@@ -1,75 +1,9 @@
-#include "vectors.h"
-
-
-
-
-/*
-        func2.1
-        * creates a vector object with default values.
-*/
-Vector* createVector(int size) {
-    Vector* v = (Vector*)malloc(sizeof(Vector));
-    if (v == NULL){
-        perror("Failed to create a memory for Vector Data");
-        return NULL;
-    }
-
-    v->size = size;
-    v->vector = (double*)malloc(size * sizeof(double));
-    if (v->vector == NULL){
-        perror("Failed to allocate memory for vector V");
-        free(v);
-        return NULL;
-    }
-    return v;
-}
-
-/*
-        func2.2
-        * Initializes a vector from a pointer vector values
-*/
-Vector* initVector (Vector* v, double* values, int size){
-    /*
-        *checking errors
-    */
-    if (v == NULL || values == NULL){
-        perror("Invalid Vector input or Values");
-        return NULL;
-    }
-
-    if ((v->size) != size){
-        perror("Invalid matching between Vector size and # of values");
-        return NULL;
-    }
-
-    for (int i = 0; i < v->size; i++){
-        v->vector[i] = values[i];
-    }
-    return v;
-
-}
-
-/*
-        func 2.3 
-    *Prints a Vector vertically
-*/
-
-void printVector (Vector* v){
-    if (v == NULL) {
-        printf("Vector is NULL\n");
-        return;
-    }
-
-    printf("Vector Size: %d\n", v->size);
-    for (int i = 0; i < v->size; i++) {
-        printf("%.2lf\n", v->vector[i]);
-    }
-}
+#include "BasicOperations_V.h"
 
 
 /*
-        func 2.4
-    * takes in double pointer of vectors and adds them together
+     func_vector_BasicOperation
+    * takes in double pointer of vectors and adds them together, returns a vector (ptr)
 */
 
 Vector* addVectors(int numOfVectors, Vector** vectors){
@@ -100,8 +34,8 @@ Vector* addVectors(int numOfVectors, Vector** vectors){
 }
 
 /*
-        func 2.5
-    * takes in double pointer of vectors and Subtract them
+     func_vector_BasicOperation
+    * takes in double pointer of vectors and Subtract them, returns a vector(ptr)
 */
 
 Vector* subtractVectors(int numOfVectors, Vector** vectors){
@@ -138,8 +72,8 @@ Vector* subtractVectors(int numOfVectors, Vector** vectors){
 }
 
 /*
-        func 2.6
-    * Multiplies a vector by a scalar value
+     func_vector_BasicOperation
+    * Takes in a Vector ptr and multiplier, returns Scalar Multiplication of the vector(ptr)
 */
 
 Vector* scalarMultiplyVector(Vector* vector, double scalar){
@@ -163,8 +97,8 @@ Vector* scalarMultiplyVector(Vector* vector, double scalar){
 }
 
 /*
-        func 2.7
-    * returns the unit vector of V
+     func_vector_BasicOperation
+    * Takes in a Vector Pointer, returns its unitVector(ptr)
 */
 
 Vector* findUnitVector(Vector* vector){
@@ -190,6 +124,11 @@ Vector* findUnitVector(Vector* vector){
 
 }
 
+
+/*
+     func_vector_BasicOperation
+    * Takes in two Vector Pointers, returns dotProduct (double)
+*/
 double dotProduct(Vector* v, Vector* w){
     
     double result = 0.0;
@@ -201,7 +140,3 @@ double dotProduct(Vector* v, Vector* w){
     return result;
 }
 
-void freeVector(Vector* vector){
-    free(vector->vector);
-    free(vector);
-}
