@@ -20,7 +20,7 @@ int main() {
     printMatrix(B);
     printf("\n");
 
-    // Create an array of matrices and add them
+    // Create an array of matrices and add them edited later
     Matrix* matrices[] = {A, B};
     Matrix* result = addMatrices(2, matrices);
     printf("Result Matrix:\n");
