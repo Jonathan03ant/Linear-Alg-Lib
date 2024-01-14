@@ -15,6 +15,9 @@ Matrix* createMatrix (int row, int col){
 
     /*
     *Allocate Memory for the Array of Pointers to Rows:
+    First pointer points to the block of memory that contains the rows
+    Second pointer points to the first row, Row
+    ----> MBLOCK-----> ARRAY OF #s
     +-----------+           +---------------+
     | double* (R1)  |   ---->   | [ double ]    |
     +-----------+           +---------------+
