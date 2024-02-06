@@ -140,3 +140,33 @@ double dotProduct(Vector* v, Vector* w){
     return result;
 }
 
+double getCosine(Vector* v, Vector* w){
+    if (v == NULL || w == NULL){
+        perror("Vector is NULL");
+        return -1;
+    }
+
+    if (v->size != w->size){
+        perror("Vectors are not of the same size");
+        return -1;
+    }
+
+    /*
+        Define the dotProduct and Magnitude of the two vectors
+    */
+
+    double dotProductResult = dotProduct(v, w);
+    double magnitudeV = 0.0;
+    double magnitudeW = 0.0;
+    for (int i = 0; i < v->size; i++){
+        magnitudeV += v->vector[i] * v->vector[i];
+        magnitudeW += w->vector[i] * w->vector[i];
+    }
+
+    magnitudeV = sqrt(magnitudeV);
+    magnitudeW = sqrt(magnitudeW);
+
+    double cosTheha = dotProductResult / (magnitudeV * magnitudeW);
+    return cosTheha;
+}
+
