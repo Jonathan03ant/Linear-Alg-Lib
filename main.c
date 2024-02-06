@@ -39,6 +39,10 @@ int main() {
     double dotProductResult = dotProduct(x, y);
     printf("%.2lf\n", dotProductResult);
 
+    printf("Finding the element at index 2:\n ");
+    double element = getElementVector(result, 2);
+    printf("%.2lf\n", element);
+
     free(x);
     free(y);
     free(result);
