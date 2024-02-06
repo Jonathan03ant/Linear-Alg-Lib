@@ -75,3 +75,12 @@ void freeVector(Vector* vector){
     free(vector->vector);
     free(vector);
 }
+
+double getElementVector(Vector* v, int index){
+    if (index <0 || index >= v->size){
+        perror("Invalid index");
+        return -1;
+    }
+
+    return v->vector[index];
+}
