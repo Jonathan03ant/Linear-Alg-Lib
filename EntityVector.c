@@ -64,6 +64,20 @@ double getElementVector(Vector* v, int index){
 
 }
 
+/*
+    func_Vec_entityObject 2.4
+    *Returns the size of a vector
+*/
+
+int getSizeVector(Vector* v){
+    if (v == NULL){
+        perror("Vector is NULL");
+        return -1;
+    }
+    return v->size;
+
+}
+
 
 
 /*
