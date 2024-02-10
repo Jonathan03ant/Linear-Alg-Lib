@@ -140,3 +140,28 @@ double dotProduct(Vector* v, Vector* w){
     return result;
 }
 
+double findCosine(Vector* v, Vector* w){
+    double dotProductResult = dotProduct(v, w);
+    double magnitudeV = 0.0;
+    double magnitudeW = 0.0;
+
+    for (int i=0; i < v->size; i++){
+        magnitudeV += v->vector[i] * v->vector[i]; 
+        magnitudeW += w->vector[i] * w->vector[i];
+    }
+
+    magnitudeV = sqrt(magnitudeV);
+    magnitudeW = sqrt(magnitudeW);
+
+    //Calculating the cosine of the angle between the two vectors
+    double cosAngle = dotProductResult / (magnitudeV * magnitudeW);
+
+    //convert the cosine to actual angle in radians
+    double angleRad = acos(cosAngle);
+
+    //convert the angle from radians to degrees
+    double angleDeg = angleRad * (180 / M_PI);
+
+    return angleDeg;
+}
+

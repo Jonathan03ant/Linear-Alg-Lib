@@ -81,7 +81,7 @@ int getSizeVector(Vector* v){
 
 
 /*
-    func_Vec_entityObject 2.3 
+    func_Vec_entityObject 2.5 
     *Prints a Vector vertically
 */
 
@@ -99,7 +99,7 @@ void printVector (Vector* v){
 
 
 /*
-    func_Vec_entityObject 2.4
+    func_Vec_entityObject 2.6
     *Frees/Destroys vectors
 */
 void freeVector(Vector* vector){
