@@ -46,6 +46,23 @@ Vector* initVector (Vector* v, double* values, int size){
 
 }
 
+/*
+    func_Vec_entityObject 2.3
+    *Returns a vector element
+*/
+double getElementVector(Vector* v, int index){
+    if (v == NULL){
+        perror("Vector is NULL");
+    }
+
+    if (index < 0 || index >= v->size) {
+        perror("Index out of range");
+        return 0.0;
+    }
+
+    return (v->vector[index]);
+
+}
 
 
 

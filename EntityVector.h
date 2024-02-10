@@ -14,7 +14,9 @@ typedef struct {
 
 Vector* createVector(int);
 Vector* initVector(Vector*, double*, int);
-double* getElementVector(Vector*); // not implemented
+double getElementVector(Vector*, int); 
+int getSizeVector(Vector*);
+
 
 void printVector(Vector*);
 void freeVectors(Vector*);
