@@ -13,9 +13,9 @@ int main() {
     y = initVector(y, yValues, 3);
     x = initVector(x, xValues, 3);
 
-    printf("Vector x: ");
+    printf("Vector x: , with size %d\n", getSizeVector(x));
     printVector(x);
-    printf("Vector y: ");
+    printf("Vector y: , with size %d\n", getSizeVector(y));
     printVector(y);
 
     Vector* Vs[] = {x, y};
@@ -29,7 +29,7 @@ int main() {
 
     result = findUnitVector(result);
     result2 = findUnitVector(result2);
-    printf("Unit Vector: result 1");
+    printf("\nUnit Vector: result 1");
     printVector(result);
 
     printf("Unit Vector: result 2");
@@ -39,9 +39,11 @@ int main() {
     double dotProductResult = dotProduct(x, y);
     printf("%.2lf\n", dotProductResult);
 
-    printf("Finding the elemnt of a vector\n");
-    double element = getElementVector(x, 2);
-    printf("%.2lf\n", element);
+    printf("Finding angle between two vectors\n");
+    double angle = findCosine(x, y);
+    printf("%.2lf\n", angle);
+   
+
 
     free(x);
     free(y);
