@@ -77,9 +77,20 @@ Matrix* createMatrix (int row, int col){
 
 void initMatrix (Matrix* m, double* values) {
 
+    /*
+        *Need some kind of error checking here to esure the double values match the matrix dimention
+    */
+
+    if (m == NULL || values == NULL) {
+        perror("Matrix or values is NULL");
+        return;
+    }
+
+    
 
     int r = m->numRow;
     int c = m->numCol;
+
 
     for (int i = 0; i < r; i++) {
         for (int j = 0; j < c; j++) {
