@@ -8,5 +8,4 @@ EntityMatrix.o: EntityMatrix.c
 	gcc -c EntityMatrix.c
 BasicOperations.o: BasicOperations.c
 	gcc -c BasicOperations.c
-clean:
-	rm -rf *.o
+
