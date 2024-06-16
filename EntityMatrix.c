@@ -2,6 +2,7 @@
 /*
     Fun1.1 fcreateMatrix
     * creates a matrix with row and int
+    * allocates memory for the matrix  data
 */
 Matrix* createMatrix (int row, int col){
 
@@ -14,15 +15,23 @@ Matrix* createMatrix (int row, int col){
 
 
     /*
-    *Allocate Memory for the Array of Pointers to Rows:
-    First pointer points to the block of memory that contains the rows
-    Second pointer points to the first row, Row
-    ----> MBLOCK-----> ARRAY OF #s
-    +-----------+           +---------------+
-    | double* (R1)  |   ---->   | [ double ]    |
-    +-----------+           +---------------+
-    | double* (R2)  |   ---->   | [ double ]    |
-    +-----------+           +---------------+
+        *Allocate Memory for the Array of Pointers to Rows:
+            First pointer points to the block of memory that contains the rows
+        *The rows are stored in a contiguous block of memory which are dynamic 
+            (hence a double pointer)
+        * Second pointer points to the first row, Row
+        ----> MBLOCK-----> ARRAY OF #s
+        +-----------+           +---------------+
+        | double* (R1)  |   ---->   | [ double ]    |
+        +-----------+           +---------------+
+        | double* (R2)  |   ---->   | [ double ]    |
+        +-----------+           +---------------+
+
+        however, on the memory, the rows are stored in a contiguous block of memory
+        Double* R1 points to the first element of the first row
+        Double* R2 points to the first element of the second row
+
+        Pointer[Array first row], Pointer[Array second row], Pointer[Array third row]
     */
 
     m->data = (double**) malloc (row * sizeof(double*));
