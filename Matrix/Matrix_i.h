@@ -1,3 +1,6 @@
+#ifndef MATRIX_I_H
+#define MATRIX_I_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,3 +20,5 @@ Matrix* createMatrix (int, int);
 void initMatrix (Matrix*, double*);
 void printMatrix (Matrix*);
 void freeMatrix(Matrix*);
+
+#endif
