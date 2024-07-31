@@ -1,4 +1,4 @@
-%module matrix_module
+%module Matrix
 
 %{
     #include "Matrix_i.h"
