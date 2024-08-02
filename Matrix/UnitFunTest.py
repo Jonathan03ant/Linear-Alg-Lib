@@ -1,17 +1,43 @@
-import sys
-sys.path.append('/Users/jonathan/Library/Mobile Documents/com~apple~CloudDocs/iUTG/Projects/DevOps/Linear-Alg-Lib/Matrix/Matrix.so')
-import Matrix
+import ctypes
+import logging
+import numpy as np
 
-# Create two 2x2 identity matrices
-identity_matrix1 = Matrix.createMatrix(2, 2)
-Matrix.initMatrix(identity_matrix1, [1, 0, 0, 1])
+logging.basicConfig(level=logging.INFO,
+                    format="%(levelname)s == %(message)s ==  %(funcName)s == %(lineno)d",
+                    handlers=[
+                        logging.FileHandler("Matrix.log"),
+                        logging.StreamHandler()
+                    ])
 
-identity_matrix2 = Matrix.createMatrix(2, 2)
-Matrix.initMatrix(identity_matrix2, [1, 0, 0, 1])
+# Load the shared object file
+matrix_lib = ctypes.CDLL('/Users/jonathan/Library/Mobile Documents/com~apple~CloudDocs/iUTG/Projects/DevOps/Linear-Alg-Lib/Matrix/_Matrix.so')
 
-# Add the two matrices
-sum_matrix = Matrix.addMatrices(2, [identity_matrix1, identity_matrix2])
+# Define the Matrix struct
+class Matrix(ctypes.Structure):
+    _fields_ = [("numRow", ctypes.c_int),
+                ("numCol", ctypes.c_int),
+                ("data", ctypes.POINTER(ctypes.POINTER(ctypes.c_double)))]
 
-# Print the result
-print("Sum of matrices:")
-print(Matrix.printMatrix(sum_matrix))
+# Define argument and return types for the functions
+matrix_lib.createMatrix.argtypes = [ctypes.c_int, ctypes.c_int]
+matrix_lib.createMatrix.restype = ctypes.POINTER(Matrix)
+
+matrix_lib.initMatrix.argtypes = [ctypes.POINTER(Matrix), ctypes.POINTER(ctypes.c_double)]
+matrix_lib.initMatrix.restype = None
+
+matrix_lib.printMatrix.argtypes = [ctypes.POINTER(Matrix)]
+matrix_lib.printMatrix.restype = None
+
+# Create a matrix
+rows, cols = 2, 2
+A = matrix_lib.createMatrix(rows, cols)
+logging.info(f"Matrix A: {A.contents} Created")
+
+# Initialize the matrix with values
+c_values = np.array([-2.0, 1.0, 1.0, 1.0], dtype=ctypes.c_double)
+matrix_lib.initMatrix(A, c_values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+logging.info(f"Matrix A: {A.contents} Initialized")
+
+# Print the matrix
+print("Printing Matrix\n")
+matrix_lib.printMatrix(A)
