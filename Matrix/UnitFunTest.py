@@ -1,17 +1,13 @@
 import ctypes
-import logging
+from config.log import setup_logger
 import numpy as np
+import logging
 
-logging.basicConfig(level=logging.INFO,
-                    format="%(levelname)s == %(message)s ==  %(funcName)s == %(lineno)d",
-                    handlers=[
-                        logging.FileHandler("Matrix.log"),
-                        logging.StreamHandler()
-                    ])
 
 # Load the shared object file
 matrix_lib = ctypes.CDLL('/Users/jonathan/Library/Mobile Documents/com~apple~CloudDocs/iUTG/Projects/DevOps/Linear-Alg-Lib/Matrix/_Matrix.so')
 
+setup_logger()
 # Define the Matrix struct
 class Matrix(ctypes.Structure):
     _fields_ = [("numRow", ctypes.c_int),
