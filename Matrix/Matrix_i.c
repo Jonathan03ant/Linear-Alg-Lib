@@ -104,8 +104,8 @@ void initMatrix (Matrix* m, double* values) {
     for (int i = 0; i < r; i++) {
         for (int j = 0; j < c; j++) {
             m->data[i][j] = values[(i * c) + j];
+        }
     }
-}
 
 }
 
