@@ -27,7 +27,7 @@ matrix_lib.printMatrix.restype = None
 # Create a matrix
 rows, cols = 2, 2
 A = matrix_lib.createMatrix(rows, cols)
-logging.info(f"Matrix A: {A.contents} Created")
+logging.info(f"Matrix Created")
 
 # Initialize the matrix with values
 c_values = np.array([-2.0, 1.0, 1.0, 1.0], dtype=ctypes.c_double)
