@@ -79,11 +79,10 @@ Matrix* createMatrix (int row, int col){
 }
 
 /*
-    func1.2 initMatrix
-    * implementing a function to copy the values from 'double* values' to the Matrix
-    Matrix M has already been created and is available for initialization
+    TAKES: Matrix Pointer to be initialized, An array of double values
+    RETURNS: void
+    # Initializes the Matrix with arg2 parameter values
 */
-
 void initMatrix (Matrix* m, double* values) {
 
     /*
@@ -94,8 +93,6 @@ void initMatrix (Matrix* m, double* values) {
         perror("Matrix or values is NULL");
         return;
     }
-
-    
 
     int r = m->numRow;
     int c = m->numCol;
@@ -109,9 +106,15 @@ void initMatrix (Matrix* m, double* values) {
 
 }
 
+/*
+    TAKES: Matrix* m
+    RETURNS: void
+    # Prints the matrix values
+*/
 void printMatrix (Matrix* m){
     int r = m->numRow;
     int c = m->numCol;
+    printf("Printing Matrix %d x %d\n", r, c);
     for (int i = 0; i < r; i++) {
         for (int j = 0; j < c; j++){
             printf("%.1lf ", m->data[i][j]);
@@ -121,12 +124,12 @@ void printMatrix (Matrix* m){
 }
 
 /*
-    func___ Adding Function
-    * uses stdarg.h library for argument Matrices
+    TAKES: Matrix* m
+    RETURNS: void
+    # Double Array(values) are freed first
+    # Then  Double pointer is freed
+    # Finally Mattrix structure is freed
 */
-
-
-
 void freeMatrix(Matrix* m) {
     if (m != NULL) {
         // Free the matrix data
