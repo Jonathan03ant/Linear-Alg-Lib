@@ -1,0 +1,8 @@
+2024-08-04 13:45:04,598 INFO == ____FUNC1: test_populate_matrix() == test_populate_matrix == 15
+2024-08-04 13:45:04,598 INFO == Matrix created == test_populate_matrix == 19
+2024-08-04 13:45:04,598 INFO == Matrix initialized == test_populate_matrix == 23
+2024-08-04 13:45:04,598 INFO == **********passed********
+
+ == test_populate_matrix == 32
+2024-08-04 13:45:04,598 INFO == ____FUNC2: test_addition() == test_addition == 41
+2024-08-04 13:45:04,598 ERROR == Error Exception: dlsym(0x82323a90, addition): symbol not found == test_addition == 48
