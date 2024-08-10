@@ -25,4 +25,7 @@ matrix.addMatrices.restype = ctypes.POINTER(Matrix)
 matrix.subtractMatrix.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.POINTER(Matrix))]
 matrix.subtractMatrix.restype = ctypes.POINTER(Matrix)
 
+matrix.scalarMultiply.argtypes = [ctypes.POINTER(Matrix), ctypes.c_double]
+matrix.scalarMultiply.restype = ctypes.POINTER(Matrix)
+
 

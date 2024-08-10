@@ -92,9 +92,26 @@ def test_subtract_matrix():
     except Exception as e:
         logging.error("Error Exception: %s", e)
         return
+    
+def test_scalar_multiplication():
+    try:
+        logging.info("____FUNC4: test_scalar_multiplication()")
+        A = matrix.createMatrix(3, 1)
+        logging.info("Matrix created")
+        
+        values = np.array([1.0, 2.0, 3.0], dtype=ctypes.c_double)
+        matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix initialized")
+        
+        result = matrix.scalarMultiply(A, 2.0)
+        matrix.printMatrix(result)
+    except Exception as e:
+        logging.error("Error Exception: %s", e)
+        return
 
 if __name__ == "__main__":
     test_populate_matrix()
     test_add_matrix()
     test_subtract_matrix()
+    test_scalar_multiplication()
     
