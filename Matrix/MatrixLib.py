@@ -22,4 +22,7 @@ matrix.printMatrix.restype = None
 matrix.addMatrices.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.POINTER(Matrix))]
 matrix.addMatrices.restype = ctypes.POINTER(Matrix)
 
+matrix.subtractMatrix.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.POINTER(Matrix))]
+matrix.subtractMatrix.restype = ctypes.POINTER(Matrix)
+
 

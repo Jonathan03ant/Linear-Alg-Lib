@@ -63,8 +63,38 @@ def test_add_matrix():
     except Exception as e:
         logging.error("Error Exception: %s", e)
         return
+    
+def test_subtract_matrix():
+    try:
+        logging.info("____FUNC3: test_subtract_matrix()")
+        row, col = 3, 3
+        A = matrix.createMatrix(row, col)
+        logging.info("Matrix1 created")
+        
+        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix1 initialized")
+        
+        B = matrix.createMatrix(row, col)
+        logging.info("Matrix2 created")
+        
+        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        matrix.initMatrix(B, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix2 initialized")
+        
+
+        matrices = (ctypes.POINTER(Matrix) * 2)(A, B)
+        
+        print("Subtracting matrices")
+        logging.info("Subtracting matrices")
+        C = matrix.subtractMatrix(2, matrices)
+        matrix.printMatrix(C)
+    except Exception as e:
+        logging.error("Error Exception: %s", e)
+        return
 
 if __name__ == "__main__":
     test_populate_matrix()
     test_add_matrix()
+    test_subtract_matrix()
     
