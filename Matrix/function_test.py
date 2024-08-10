@@ -1,6 +1,6 @@
 import numpy as np
 import ctypes
-from MatrixLib import matrix
+from MatrixLib import matrix, Matrix
 import logging
 
 logging.basicConfig(
@@ -40,20 +40,29 @@ def test_add_matrix():
         logging.info("____FUNC2: test_add_matrix()")
         row, col = 3, 3
         A = matrix.createMatrix(row, col)
+        logging.info("Matrix1 created")
+        
         values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
         matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix1 initialized")
         
         B = matrix.createMatrix(row, col)
+        logging.info("Matrix2 created")
+        
         values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
         matrix.initMatrix(B, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix2 initialized")
         
-        C = matrix.addMatrix(2, A, B)
+
+        matrices = (ctypes.POINTER(Matrix) * 2)(A, B)
+        
+        print("Adding matrices")
+        logging.info("Adding matrices")
+        C = matrix.addMatrices(2, matrices)
         matrix.printMatrix(C)
     except Exception as e:
         logging.error("Error Exception: %s", e)
         return
-    
-
 
 if __name__ == "__main__":
     test_populate_matrix()

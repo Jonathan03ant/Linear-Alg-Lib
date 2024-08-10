@@ -19,7 +19,7 @@ matrix.initMatrix.restype = None
 matrix.printMatrix.argtypes = [ctypes.POINTER(Matrix)]
 matrix.printMatrix.restype = None
 
-matrix.addMatrix.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.POINTER(Matrix))]
-matrix.addMatrix.restype = ctypes.POINTER(Matrix)
+matrix.addMatrices.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.POINTER(Matrix))]
+matrix.addMatrices.restype = ctypes.POINTER(Matrix)
 
 
