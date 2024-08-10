@@ -35,8 +35,27 @@ def test_populate_matrix():
         logging.error("Error Exception: %s", e)
         return
     
+def test_add_matrix():
+    try:
+        logging.info("____FUNC2: test_add_matrix()")
+        row, col = 3, 3
+        A = matrix.createMatrix(row, col)
+        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        
+        B = matrix.createMatrix(row, col)
+        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        matrix.initMatrix(B, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        
+        C = matrix.addMatrix(2, A, B)
+        matrix.printMatrix(C)
+    except Exception as e:
+        logging.error("Error Exception: %s", e)
+        return
+    
 
 
 if __name__ == "__main__":
     test_populate_matrix()
+    test_add_matrix()
     
