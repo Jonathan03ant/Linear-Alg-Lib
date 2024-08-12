@@ -109,9 +109,28 @@ def test_scalar_multiplication():
         logging.error("Error Exception: %s", e)
         return
 
+def test_transpose_matrix():
+    try:
+        logging.info("____FUNC5: test_transpose_matrix()")
+        A = matrix.createMatrix(3, 3)
+        logging.info("Matrix created")
+        
+        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
+        logging.info("Matrix initialized")
+        
+        result = matrix.transposeMatrix(A)
+        matrix.printMatrix(result)
+        
+    except Exception as e:
+        logging.error("Error Exception: %s", e)
+        return
+    
+    
 if __name__ == "__main__":
     test_populate_matrix()
     test_add_matrix()
     test_subtract_matrix()
     test_scalar_multiplication()
+    test_transpose_matrix()
     
