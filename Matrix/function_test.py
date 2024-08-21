@@ -115,7 +115,7 @@ def test_transpose_matrix():
         A = matrix.createMatrix(3, 3)
         logging.info("Matrix created")
         
-        values = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
+        values = np.array([1.0, 2.0, 4.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], dtype=ctypes.c_double)
         matrix.initMatrix(A, values.ctypes.data_as(ctypes.POINTER(ctypes.c_double)))
         logging.info("Matrix initialized")
         
