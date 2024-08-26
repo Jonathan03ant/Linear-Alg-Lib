@@ -111,7 +111,7 @@ def test_scalar_multiplication():
 
 def test_transpose_matrix():
     try:
-        logging.info("____FUNC5: test_transpose_matrix()")
+        logging.info("____,FUNC5: test_transpose_matrix()")
         A = matrix.createMatrix(3, 3)
         logging.info("Matrix created")
         
