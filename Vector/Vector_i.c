@@ -44,3 +44,17 @@ void initVector(Vector* v, double* values){
 		}
 	}
 }
+
+double getElementVector(Vector* v, int index) {
+    if (v == NULL) {
+        perror("Error: Vector is NULL");
+        return -1.0; // Returning a special value indicating an error
+    }
+
+    if (index < 0 || index >= v->size) {
+        perror("Error: Index out of range");
+        return -1.0; // Returning a special value indicating an error
+    }
+
+    return v->vector[index];
+}
