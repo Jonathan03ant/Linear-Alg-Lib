@@ -1,24 +1,24 @@
-2024-08-11 21:48:05,755 INFO == ____FUNC1: test_populate_matrix() == test_populate_matrix == 15
-2024-08-11 21:48:05,757 INFO == Matrix created == test_populate_matrix == 19
-2024-08-11 21:48:05,757 INFO == Matrix initialized == test_populate_matrix == 23
-2024-08-11 21:48:05,757 INFO == **********passed********
+2024-08-27 00:31:10,922 INFO == ____FUNC1: test_populate_matrix() == test_populate_matrix == 15
+2024-08-27 00:31:10,922 INFO == Matrix created == test_populate_matrix == 19
+2024-08-27 00:31:10,922 INFO == Matrix initialized == test_populate_matrix == 23
+2024-08-27 00:31:10,922 INFO == **********passed********
 
  == test_populate_matrix == 32
-2024-08-11 21:48:05,757 INFO == ____FUNC2: test_add_matrix() == test_add_matrix == 40
-2024-08-11 21:48:05,757 INFO == Matrix1 created == test_add_matrix == 43
-2024-08-11 21:48:05,757 INFO == Matrix1 initialized == test_add_matrix == 47
-2024-08-11 21:48:05,757 INFO == Matrix2 created == test_add_matrix == 50
-2024-08-11 21:48:05,757 INFO == Matrix2 initialized == test_add_matrix == 54
-2024-08-11 21:48:05,757 INFO == Adding matrices == test_add_matrix == 60
-2024-08-11 21:48:05,757 INFO == ____FUNC3: test_subtract_matrix() == test_subtract_matrix == 69
-2024-08-11 21:48:05,757 INFO == Matrix1 created == test_subtract_matrix == 72
-2024-08-11 21:48:05,757 INFO == Matrix1 initialized == test_subtract_matrix == 76
-2024-08-11 21:48:05,757 INFO == Matrix2 created == test_subtract_matrix == 79
-2024-08-11 21:48:05,757 INFO == Matrix2 initialized == test_subtract_matrix == 83
-2024-08-11 21:48:05,757 INFO == Subtracting matrices == test_subtract_matrix == 89
-2024-08-11 21:48:05,757 INFO == ____FUNC4: test_scalar_multiplication() == test_scalar_multiplication == 98
-2024-08-11 21:48:05,757 INFO == Matrix created == test_scalar_multiplication == 100
-2024-08-11 21:48:05,757 INFO == Matrix initialized == test_scalar_multiplication == 104
-2024-08-11 21:48:05,757 INFO == ____FUNC5: test_transpose_matrix() == test_transpose_matrix == 114
-2024-08-11 21:48:05,758 INFO == Matrix created == test_transpose_matrix == 116
-2024-08-11 21:48:05,758 INFO == Matrix initialized == test_transpose_matrix == 120
+2024-08-27 00:31:10,922 INFO == ____FUNC2: test_add_matrix() == test_add_matrix == 40
+2024-08-27 00:31:10,922 INFO == Matrix1 created == test_add_matrix == 43
+2024-08-27 00:31:10,923 INFO == Matrix1 initialized == test_add_matrix == 47
+2024-08-27 00:31:10,923 INFO == Matrix2 created == test_add_matrix == 50
+2024-08-27 00:31:10,923 INFO == Matrix2 initialized == test_add_matrix == 54
+2024-08-27 00:31:10,923 INFO == Adding matrices == test_add_matrix == 60
+2024-08-27 00:31:10,924 INFO == ____FUNC3: test_subtract_matrix() == test_subtract_matrix == 69
+2024-08-27 00:31:10,924 INFO == Matrix1 created == test_subtract_matrix == 72
+2024-08-27 00:31:10,924 INFO == Matrix1 initialized == test_subtract_matrix == 76
+2024-08-27 00:31:10,924 INFO == Matrix2 created == test_subtract_matrix == 79
+2024-08-27 00:31:10,924 INFO == Matrix2 initialized == test_subtract_matrix == 83
+2024-08-27 00:31:10,924 INFO == Subtracting matrices == test_subtract_matrix == 89
+2024-08-27 00:31:10,924 INFO == ____FUNC4: test_scalar_multiplication() == test_scalar_multiplication == 98
+2024-08-27 00:31:10,924 INFO == Matrix created == test_scalar_multiplication == 100
+2024-08-27 00:31:10,924 INFO == Matrix initialized == test_scalar_multiplication == 104
+2024-08-27 00:31:10,925 INFO == ____,FUNC5: test_transpose_matrix() == test_transpose_matrix == 114
+2024-08-27 00:31:10,925 INFO == Matrix created == test_transpose_matrix == 116
+2024-08-27 00:31:10,925 INFO == Matrix initialized == test_transpose_matrix == 120
