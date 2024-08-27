@@ -11,7 +11,7 @@ typedef struct {
 
 Vector* createVector(int);
 Vector* initVector(Vector*, double*);
-double getElement(Vector*, int);
+double getElementVector(Vector*, int);
 int getSize(Vector*);
 
 void printVector(Vector*);
