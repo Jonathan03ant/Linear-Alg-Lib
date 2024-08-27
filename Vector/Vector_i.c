@@ -5,9 +5,6 @@
 	TAKES IN SIZE
 	ALLOCATES A MEMORY AND CREATE EMPTY VECTOR STRUCT
 */
-
-
-
 Vector* createVector(int size){
 	Vector* v = (Vector*)malloc(sizeof(Vector));
 	    if (v == NULL){
@@ -17,6 +14,7 @@ Vector* createVector(int size){
 
 	v->size = size;
 	v->vector = (double*)malloc(sizeof(double));
+
 	if (v->vector == NULL){
         perror("Failed to allocate memory for vector V");
         free(v);
@@ -24,4 +22,25 @@ Vector* createVector(int size){
     }
     return v;
 
+}
+
+/*
+	TAKES: A Vector pointer `v` and an array of `double` values `values`
+	RETURNS: void
+	Initializes the vector with the provided values, or zeros if `values` is NULL.
+*/
+
+void initVector(Vector* v, double* values){
+	if (v == NULL || v->vector == NULL) {
+        perror("Vector is NULL or not properly allocated");
+        return;
+    }
+
+	for (int i=0; i < v->size; i++){
+		if (values != NULL){
+			v->vector[i] = values[i];
+		} else {
+			v->vector[i] = 0.0;
+		}
+	}
 }
