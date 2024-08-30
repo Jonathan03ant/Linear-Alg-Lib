@@ -78,3 +78,27 @@ Vector* scalarMultiplyVector(Vector* vector, double scalar){
 
     return result;
 }
+
+
+Vector* findUnitVector(Vector* vector){
+    if (vector == NULL){
+        perror("Vector is NULL");
+    }
+
+    int size = vector->size;
+    Vector* result = createVector(size);
+    double magnitude = 0.0;
+
+    for (int i = 0; i < size; i++){
+        magnitude += vector->vector[i] * vector->vector[i];
+    }
+
+    magnitude = sqrt(magnitude);
+
+    for (int i = 0; i < size; i++){
+        result->vector[i] = vector->vector[i] / magnitude;
+    }
+    
+    return result;
+
+}
