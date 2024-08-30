@@ -126,7 +126,9 @@ def test_transpose_matrix():
         logging.error("Error Exception: %s", e)
         return
     
-    
+def free_matrix():
+    pass
+  
 if __name__ == "__main__":
     test_populate_matrix()
     test_add_matrix()
