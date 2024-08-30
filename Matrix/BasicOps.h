@@ -11,6 +11,7 @@ Matrix* addMatrices(int, Matrix**);
 Matrix* subtractMatrix(int, Matrix**);
 Matrix* scalarMultiply (Matrix*, double);
 Matrix* transposeMatrix(Matrix*);
+Matrix* multiplication(Matrix*, Matrix*);
 
 #endif
 
