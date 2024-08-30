@@ -25,6 +25,7 @@ Vector* addVectors (int num, Vector** vectors){
     return result;
 }
 
+
 Vector* subtracktVectors(int num, Vector** vectors){
     if (num < 0 || vectors == NULL){
         perror("Not enough vectors for this Operation");
@@ -52,6 +53,27 @@ Vector* subtracktVectors(int num, Vector** vectors){
                 result->vector[j] -= vectors[i]->vector[j];
             }
         }
+    }
+
+    return result;
+}
+
+
+Vector* scalarMultiplyVector(Vector* vector, double scalar){
+    if (vector == NULL || scalar == 0){
+        perror("Input Vector NUll or Multiplier is Zero");
+        return NULL;
+    }
+
+    int size = vector->size;
+    Vector* result = createVector(size);
+
+    if (result == NULL){
+        perror("Failed to allocate memory for result vector");
+    }
+
+    for (int i = 0; i < size; i++){
+        result->vector[i] = vector->vector[i] * scalar;
     }
 
     return result;
