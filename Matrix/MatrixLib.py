@@ -1,7 +1,7 @@
 import ctypes
 
 # Load the shared object file
-matrix = ctypes.CDLL('/home/jonathan/UTG_SRVR/Projects/Linear-Alg-Lib/Matrix/_Matrix.so')
+matrix = ctypes.CDLL('/app/Matrix/_Matrix.so')
 
 # Define the Matrix struct
 class Matrix(ctypes.Structure):
