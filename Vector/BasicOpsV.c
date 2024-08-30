@@ -43,8 +43,6 @@ Vector* subtracktVectors(int num, Vector** vectors){
         * Now we can loop through numVectors and add them all together
         * before that, we need to copy the elements of the first Vector in our result Vector 
     */
-
-
     for (int i = 0; i < num; i++){
         for (int j = 0; j < size; j++){
             if (i == 0){
@@ -98,7 +96,19 @@ Vector* findUnitVector(Vector* vector){
     for (int i = 0; i < size; i++){
         result->vector[i] = vector->vector[i] / magnitude;
     }
-    
+
     return result;
 
+}
+
+
+double dotProduct(Vector* v, Vector* w){
+    double result = 0.0;
+    int size = w->size;
+
+    for (int i = 0; i < size; i++){
+        result += v->vector[i] * w->vector[i];
+    }
+
+    return result;
 }
