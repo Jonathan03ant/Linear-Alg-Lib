@@ -26,7 +26,7 @@ RUN pip install -r requirements.txt
 RUN cd Matrix && make
 
 # Set the PYTHONPATH to include the app directory
-ENV PYTHONPATH=/app:$PYTHONPATH
+ENV PYTHONPATH=/app
 
 # Default command to run tests (can be overridden)
 CMD ["python", "Matrix/function_test.py"]
