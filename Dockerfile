@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
     make \
+    vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
@@ -28,6 +29,5 @@ RUN cd Matrix && make
 # Set the PYTHONPATH to include the app directory
 ENV PYTHONPATH=/app
 
-# Default command to run tests (can be overridden)
-CMD ["python", "Matrix/function_test.py"]
-
+# Default command to run a shell
+CMD ["/bin/bash"]
