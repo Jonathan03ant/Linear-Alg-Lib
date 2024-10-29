@@ -1,0 +1,16 @@
+/Linear-Alg-Lib
+│
+├── /Matrix
+│   ├── Matrix_i.h
+│   ├── BasicOps.c
+│   ├── ... 
+│   └── Makefile
+│
+├── /Vector
+│   ├── Vector_i.h
+│   ├── BasicOps.c
+│   ├── ... 
+│   └── Makefile
+│
+└── main.c
+
