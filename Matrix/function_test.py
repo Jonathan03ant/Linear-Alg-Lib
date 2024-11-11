@@ -56,7 +56,7 @@ def test_add_matrix():
 
         matrices = (ctypes.POINTER(Matrix) * 2)(A, B)
         
-        print("Adding matrices")
+        print("Adding matrices from other")
         logging.info("Adding matrices")
         C = matrix.addMatrices(2, matrices)
         matrix.printMatrix(C)
