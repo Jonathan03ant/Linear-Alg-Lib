@@ -1,6 +1,6 @@
 #include "BasicOps.h"
 #include "Matrix_i.h"
-
+#include "../Vector/BasicOpsV.h"
 
 /*
     func___ Adding Function
@@ -8,7 +8,8 @@
 */
 
 
-Matrix* addMatrices(int numMatrices, Matrix** matrices) {
+Matrix* addMatrices(int numMatrices, Matrix** matrices) 
+{
     /*
         * Error checking //Compatibility
     */
@@ -57,7 +58,8 @@ Matrix* addMatrices(int numMatrices, Matrix** matrices) {
     return result;
 }
 
-Matrix* subtractMatrix (int numMatrices, Matrix** matrices){
+Matrix* subtractMatrix (int numMatrices, Matrix** matrices)
+{
     /*
         * Error checking //Compatibility
     */
@@ -107,7 +109,8 @@ Matrix* subtractMatrix (int numMatrices, Matrix** matrices){
     return result;
 
 }
-Matrix* scalarMultiply (Matrix* matrix, double scalar) {
+Matrix* scalarMultiply (Matrix* matrix, double scalar) 
+{
     /*
         *Error checking
 
@@ -136,7 +139,8 @@ Matrix* scalarMultiply (Matrix* matrix, double scalar) {
     return result;
 }
 
-Matrix* transposeMatrix (Matrix* matrix) {
+Matrix* transposeMatrix (Matrix* matrix) 
+{
     if (matrix == NULL){
         perror("Input Matrix is Null");
     }
@@ -159,6 +163,34 @@ Matrix* transposeMatrix (Matrix* matrix) {
 
     printf("\nMatrix Transpose\n");
     return result;
+}
+
+Matrix* multiplication(Matrix* A, Matrix* B)
+{
+    if (A == NULL || B == NULL)
+    {
+        printf("One of both matrices are NULL");
+    }
+
+    if (A->data != B->numRow)
+    {
+        printf("Incompatible dimensions for matrix multiplication");
+    }
+
+    Matrix* result = createMatrix(A->numRow, B->numCol);
+    if (result == NULL)
+    {
+        printf("memory allocation failed");
+    }
+
+    //we want to populate each i of k of members on the result
+    for (int i = 0; i < A->numRow; i++)
+    {
+        for (int k = 0; i < A->numCol; i++)
+        {
+            //here we can populate individual dot products
+        }
+    }
 }
 
 
